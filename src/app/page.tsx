@@ -6,9 +6,9 @@ import { Input } from "@/components/ui/input";
 import { useEffect, useState } from "react";
 
 export default function Home() {
-  const [miles, setMiles] = useState("");
-  const [mpg, setMpg] = useState("");
-  const [ppl, setPpl] = useState("");
+  const [miles, setMiles] = useState("300");
+  const [mpg, setMpg] = useState("35");
+  const [ppl, setPpl] = useState("145");
   const [totalCost, setTotalCost] = useState(0);
   const [litresRequired, setLitresRequired] = useState(0);
 
@@ -46,113 +46,118 @@ export default function Home() {
               <FuelIcon size={50} />
             </div>
           </div>
-          <div>
-            <Card className="shadow-xl flex border-0 bg-[#F2668B]">
-              <CardTitle className=" px-6">
-                <Calculator size={40} className="text-white" />
-              </CardTitle>
-              <CardContent className="y-6">
-                <div className="flex">
-                  <Card className="bg-white/20 backdrop-blur-sm border-white/20 w-full">
-                    <CardContent className="p-6">
-                      <div className="flex flex-col gap-4">
-                        <div>
-                          <label
-                            className="block text-white/80 text-sm font-medium mb-1"
-                            htmlFor="miles"
-                          >
-                            Miles
-                          </label>
-                          <Input
-                            id="miles"
-                            type="number"
-                            className="w-full bg-white/80 text-black"
-                            placeholder="Enter miles"
-                            onChange={(e) => {
-                              setMiles(e.target.value);
-                            }}
-                          />
-                        </div>
-                        <div>
-                          <label
-                            className="block text-white/80 text-sm font-medium mb-1"
-                            htmlFor="mpg"
-                          >
-                            MPG
-                          </label>
-                          <Input
-                            id="mpg"
-                            type="number"
-                            className="w-full bg-white/80 text-black"
-                            placeholder="Enter MPG"
-                            onChange={(e) => {
-                              setMpg(e.target.value);
-                            }}
-                          />
-                        </div>
-                        <div>
-                          <label
-                            className="block text-white/80 text-sm font-medium mb-1"
-                            htmlFor="litres"
-                          >
-                            Price per litre (pence)
-                          </label>
-                          <Input
-                            id="litres"
-                            type="number"
-                            className="w-full bg-white/80 text-black"
-                            placeholder="Enter litres"
-                            onChange={(e) => {
-                              setPpl(e.target.value);
-                            }}
-                          />
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
+          <div className="mb-12">
+            <Card className="shadow-xl border-0 bg-gradient-to-r from-[#F2668B] to-[#E91E63]">
+              <CardHeader className="text-center pb-6">
+                <CardTitle className="text-2xl flex items-center justify-center gap-3 text-white">
+                  <Calculator size={32} className="text-white" />
+                  Calculate Your Journey
+                </CardTitle>
+                <p className="text-white/80 text-sm mt-2">
+                  Enter your trip details below
+                </p>
+              </CardHeader>
+              <CardContent className="pb-8">
+                <div className="grid gap-6 md:grid-cols-3">
+                  <div className="space-y-2">
+                    <label
+                      className="block text-white/90 text-sm font-medium"
+                      htmlFor="miles"
+                    >
+                      Distance (Miles)
+                    </label>
+                    <Input
+                      id="miles"
+                      type="number"
+                      value={miles}
+                      className="w-full bg-white/90 text-black border-0 focus:ring-2 focus:ring-white/50"
+                      placeholder="e.g. 150"
+                      onChange={(e) => {
+                        setMiles(e.target.value);
+                      }}
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label
+                      className="block text-white/90 text-sm font-medium"
+                      htmlFor="mpg"
+                    >
+                      Car Efficiency (MPG)
+                    </label>
+                    <Input
+                      id="mpg"
+                      type="number"
+                      value={mpg}
+                      className="w-full bg-white/90 text-black border-0 focus:ring-2 focus:ring-white/50"
+                      placeholder="e.g. 35"
+                      onChange={(e) => {
+                        setMpg(e.target.value);
+                      }}
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label
+                      className="block text-white/90 text-sm font-medium"
+                      htmlFor="litres"
+                    >
+                      Fuel Price (pence/L)
+                    </label>
+                    <Input
+                      id="litres"
+                      type="number"
+                      value={ppl}
+                      className="w-full bg-white/90 text-black border-0 focus:ring-2 focus:ring-white/50"
+                      placeholder="e.g. 145"
+                      onChange={(e) => {
+                        setPpl(e.target.value);
+                      }}
+                    />
+                  </div>
                 </div>
               </CardContent>
             </Card>
           </div>
-          <div className="text-center py-8 mb-8">
-            <Card className="shadow-xl border-0 bg-gradient-to-r from-[#026873] to-[#03A688] text-white">
-              <CardHeader>
-                <CardTitle className="text-2xl flex items-center gap-2 text-white">
-                  <MapPin className="w-6 h-6" />
-                  Your Journey Costs
+
+          <div>
+            <Card className="shadow-xl border-0 bg-gradient-to-r from-[#026873] to-[#03A688]">
+              <CardHeader className="text-center pb-6">
+                <CardTitle className="text-2xl flex items-center justify-center gap-3 text-white">
+                  <MapPin className="w-8 h-8" />
+                  Your Journey Results
                 </CardTitle>
+                <p className="text-white/80 text-sm mt-2">
+                  {miles && mpg && ppl
+                    ? "Here's what your trip will cost"
+                    : "Enter your details above to see results"}
+                </p>
               </CardHeader>
-              <CardContent className="space-y-6">
-                <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-2">
-                  <Card className="bg-white/20 backdrop-blur-sm border-white/20">
+              <CardContent className="pb-8">
+                <div className="grid gap-6 md:grid-cols-2">
+                  <Card className="bg-white/20 backdrop-blur-sm border-white/30 hover:bg-white/25 transition-colors">
                     <CardContent className="p-6 text-center">
-                      <div className="flex items-center justify-center gap-2 mb-2">
-                        <CreditCard className="w-6 h-6 text-white/80" />
-                        <span className="text-white/80 text-sm font-medium uppercase tracking-wide">
-                          Total Cost
-                        </span>
+                      <div className="flex items-center justify-center gap-2 mb-3">
+                        <CreditCard className="w-8 h-8 text-white" />
                       </div>
-                      <div className="text-4xl font-bold text-white mb-1">
+                      <div className="text-3xl font-bold text-white mb-2">
                         £{totalCost.toFixed(2)}
                       </div>
-                      <p className="text-white/70 text-sm">
-                        Enter details above
+                      <p className="text-white/80 text-sm font-medium uppercase tracking-wide">
+                        Total Cost
                       </p>
                     </CardContent>
                   </Card>
 
-                  <Card className="bg-white/20 backdrop-blur-sm border-white/20">
+                  <Card className="bg-white/20 backdrop-blur-sm border-white/30 hover:bg-white/25 transition-colors">
                     <CardContent className="p-6 text-center">
-                      <div className="flex items-center justify-center gap-2 mb-2">
-                        <FuelIcon className="w-6 h-6 text-white/80" />
-                        <span className="text-white/80 text-sm font-medium uppercase tracking-wide">
-                          Litres Required
-                        </span>
+                      <div className="flex items-center justify-center gap-2 mb-3">
+                        <FuelIcon className="w-8 h-8 text-white" />
                       </div>
-                      <div className="text-4xl font-bold text-white mb-1">
+                      <div className="text-3xl font-bold text-white mb-2">
                         {litresRequired.toFixed(1)}L
                       </div>
-                      <p className="text-white/70 text-sm">Fuel needed</p>
+                      <p className="text-white/80 text-sm font-medium uppercase tracking-wide">
+                        Fuel Needed
+                      </p>
                     </CardContent>
                   </Card>
                 </div>
