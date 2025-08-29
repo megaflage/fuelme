@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { MapPin, CreditCard, FuelIcon, Calculator } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { useEffect, useState } from "react";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export default function Home() {
   const [miles, setMiles] = useState("300");
@@ -57,64 +58,90 @@ export default function Home() {
                   Enter your trip details below
                 </p>
               </CardHeader>
-              <CardContent className="pb-8">
-                <div className="grid gap-6 md:grid-cols-3">
-                  <div className="space-y-2">
-                    <label
-                      className="block text-white/90 text-sm font-medium"
-                      htmlFor="miles"
-                    >
-                      Distance (Miles)
-                    </label>
-                    <Input
-                      id="miles"
-                      type="number"
-                      value={miles}
-                      className="w-full bg-white/90 text-black border-0 focus:ring-2 focus:ring-white/50"
-                      placeholder="e.g. 150"
-                      onChange={(e) => {
-                        setMiles(e.target.value);
-                      }}
-                    />
+              <Tabs
+                className="flex items-center justify-center"
+                defaultValue="JourneyCost"
+              >
+                <TabsList className="bg-white/10 border border-white/20 rounded-lg mb-6">
+                  <TabsTrigger
+                    value="JourneyCost"
+                    className="data-[state=active]:bg-white data-[state=active]:text-black text-white/80"
+                  >
+                    Journey Cost
+                  </TabsTrigger>
+                  <TabsTrigger
+                    value="Required Fuel"
+                    className="data-[state=active]:bg-white data-[state=active]:text-black text-white/80"
+                  >
+                    Required Fuel
+                  </TabsTrigger>
+                  <TabsTrigger
+                    value="MPG Calculator"
+                    className="data-[state=active]:bg-white data-[state=active]:text-black text-white/80"
+                  >
+                    MPG Calculator
+                  </TabsTrigger>
+                </TabsList>
+
+                <CardContent className="pb-8">
+                  <div className="grid gap-6 md:grid-cols-3">
+                    <div className="space-y-2">
+                      <label
+                        className="block text-white/90 text-sm font-medium"
+                        htmlFor="miles"
+                      >
+                        Distance (Miles)
+                      </label>
+                      <Input
+                        id="miles"
+                        type="number"
+                        value={miles}
+                        className="w-full bg-white/90 text-black border-0 focus:ring-2 focus:ring-white/50"
+                        placeholder="e.g. 150"
+                        onChange={(e) => {
+                          setMiles(e.target.value);
+                        }}
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <label
+                        className="block text-white/90 text-sm font-medium"
+                        htmlFor="mpg"
+                      >
+                        Car Efficiency (MPG)
+                      </label>
+                      <Input
+                        id="mpg"
+                        type="number"
+                        value={mpg}
+                        className="w-full bg-white/90 text-black border-0 focus:ring-2 focus:ring-white/50"
+                        placeholder="e.g. 35"
+                        onChange={(e) => {
+                          setMpg(e.target.value);
+                        }}
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <label
+                        className="block text-white/90 text-sm font-medium"
+                        htmlFor="litres"
+                      >
+                        Fuel Price (pence/L)
+                      </label>
+                      <Input
+                        id="litres"
+                        type="number"
+                        value={ppl}
+                        className="w-full bg-white/90 text-black border-0 focus:ring-2 focus:ring-white/50"
+                        placeholder="e.g. 145"
+                        onChange={(e) => {
+                          setPpl(e.target.value);
+                        }}
+                      />
+                    </div>
                   </div>
-                  <div className="space-y-2">
-                    <label
-                      className="block text-white/90 text-sm font-medium"
-                      htmlFor="mpg"
-                    >
-                      Car Efficiency (MPG)
-                    </label>
-                    <Input
-                      id="mpg"
-                      type="number"
-                      value={mpg}
-                      className="w-full bg-white/90 text-black border-0 focus:ring-2 focus:ring-white/50"
-                      placeholder="e.g. 35"
-                      onChange={(e) => {
-                        setMpg(e.target.value);
-                      }}
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label
-                      className="block text-white/90 text-sm font-medium"
-                      htmlFor="litres"
-                    >
-                      Fuel Price (pence/L)
-                    </label>
-                    <Input
-                      id="litres"
-                      type="number"
-                      value={ppl}
-                      className="w-full bg-white/90 text-black border-0 focus:ring-2 focus:ring-white/50"
-                      placeholder="e.g. 145"
-                      onChange={(e) => {
-                        setPpl(e.target.value);
-                      }}
-                    />
-                  </div>
-                </div>
-              </CardContent>
+                </CardContent>
+              </Tabs>
             </Card>
           </div>
 
@@ -166,25 +193,10 @@ export default function Home() {
           </div>
         </div>
       </main>
-      <footer className="flex gap-[24px] flex-wrap items-center justify-center py-8 px-6">
+      <footer className="flex gap-[24px] flex-wrap items-center justify-center py-8 px-6 text-white/70 sticky">
         <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+          className="flex items-center gap-2 hover:underline hover:underline-offset-4 text-white"
+          href="https://github.com/megaflage/fuelme"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -195,22 +207,7 @@ export default function Home() {
             width={16}
             height={16}
           />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
+          Github
         </a>
       </footer>
     </div>
