@@ -76,7 +76,7 @@ function RequiredFuel() {
           </h3>
           <p className="text-white/90 text-sm mt-2">
             {miles && mpg
-              ? "Here&apos;s how much fuel you&apos;ll need"
+              ? "Here is how much fuel you require"
               : "Enter your details above to see results"}
           </p>
         </div>

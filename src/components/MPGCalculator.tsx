@@ -76,7 +76,7 @@ function MPGCalculator() {
           </h3>
           <p className="text-white/90 text-sm mt-2">
             {miles && litresUsed
-              ? "Here&apos;s your car&apos;s fuel efficiency"
+              ? "Heres your cars fuel efficiency"
               : "Enter your details above to calculate MPG"}
           </p>
         </div>

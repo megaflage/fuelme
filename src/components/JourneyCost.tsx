@@ -102,7 +102,7 @@ function JourneyCost() {
           </h3>
           <p className="text-white/90 text-sm mt-2">
             {miles && mpg && ppl
-              ? "Here&apos;s what your trip will cost"
+              ? "Here iss what your trip will cost"
               : "Enter your details above to see results"}
           </p>
         </div>
