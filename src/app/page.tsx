@@ -5,6 +5,7 @@ import { FuelIcon, Calculator } from "lucide-react";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import RequiredFuel from "@/components/JournetCost";
 import JourneyCost from "@/components/JourneyCost";
+import MPGCalculator from "@/components/MPGCalculator";
 
 export default function Home() {
   return (
@@ -68,9 +69,7 @@ export default function Home() {
 
                 <TabsContent value="MPGCalculator">
                   <CardContent className="pb-8">
-                    <div className="text-center text-white/80">
-                      <p>MPG Calculator coming soon...</p>
-                    </div>
+                    <MPGCalculator />
                   </CardContent>
                 </TabsContent>
               </Tabs>
