@@ -4,7 +4,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { MapPin, CreditCard, FuelIcon, Calculator } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { useEffect, useState } from "react";
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import RequiredFuel from "@/components/JournetCost";
 
 export default function Home() {
   const [miles, setMiles] = useState("300");
@@ -58,89 +59,104 @@ export default function Home() {
                   Enter your trip details below
                 </p>
               </CardHeader>
-              <Tabs
-                className="flex items-center justify-center"
-                defaultValue="JourneyCost"
-              >
-                <TabsList className="bg-white/10 border border-white/20 rounded-lg mb-6">
-                  <TabsTrigger
-                    value="JourneyCost"
-                    className="data-[state=active]:bg-white data-[state=active]:text-black text-white/80"
-                  >
-                    Journey Cost
-                  </TabsTrigger>
-                  <TabsTrigger
-                    value="Required Fuel"
-                    className="data-[state=active]:bg-white data-[state=active]:text-black text-white/80"
-                  >
-                    Required Fuel
-                  </TabsTrigger>
-                  <TabsTrigger
-                    value="MPG Calculator"
-                    className="data-[state=active]:bg-white data-[state=active]:text-black text-white/80"
-                  >
-                    MPG Calculator
-                  </TabsTrigger>
-                </TabsList>
+              <Tabs className="w-full" defaultValue="JourneyCost">
+                <div className="flex items-center justify-center mb-6">
+                  <TabsList className="bg-white/10 border border-white/20 rounded-lg">
+                    <TabsTrigger
+                      value="JourneyCost"
+                      className="data-[state=active]:bg-white data-[state=active]:text-black text-white/80"
+                    >
+                      Journey Cost
+                    </TabsTrigger>
+                    <TabsTrigger
+                      value="RequiredFuel"
+                      className="data-[state=active]:bg-white data-[state=active]:text-black text-white/80"
+                    >
+                      Required Fuel
+                    </TabsTrigger>
+                    <TabsTrigger
+                      value="MPGCalculator"
+                      className="data-[state=active]:bg-white data-[state=active]:text-black text-white/80"
+                    >
+                      MPG Calculator
+                    </TabsTrigger>
+                  </TabsList>
+                </div>
 
-                <CardContent className="pb-8">
-                  <div className="grid gap-6 md:grid-cols-3">
-                    <div className="space-y-2">
-                      <label
-                        className="block text-white/90 text-sm font-medium"
-                        htmlFor="miles"
-                      >
-                        Distance (Miles)
-                      </label>
-                      <Input
-                        id="miles"
-                        type="number"
-                        value={miles}
-                        className="w-full bg-white/90 text-black border-0 focus:ring-2 focus:ring-white/50"
-                        placeholder="e.g. 150"
-                        onChange={(e) => {
-                          setMiles(e.target.value);
-                        }}
-                      />
+                <TabsContent value="JourneyCost">
+                  <CardContent className="pb-8">
+                    <div className="grid gap-6 md:grid-cols-3">
+                      <div className="space-y-2">
+                        <label
+                          className="block text-white/90 text-sm font-medium"
+                          htmlFor="miles"
+                        >
+                          Distance (Miles)
+                        </label>
+                        <Input
+                          id="miles"
+                          type="number"
+                          value={miles}
+                          className="w-full bg-white/90 text-black border-0 focus:ring-2 focus:ring-white/50"
+                          placeholder="e.g. 150"
+                          onChange={(e) => {
+                            setMiles(e.target.value);
+                          }}
+                        />
+                      </div>
+                      <div className="space-y-2">
+                        <label
+                          className="block text-white/90 text-sm font-medium"
+                          htmlFor="mpg"
+                        >
+                          Car Efficiency (MPG)
+                        </label>
+                        <Input
+                          id="mpg"
+                          type="number"
+                          value={mpg}
+                          className="w-full bg-white/90 text-black border-0 focus:ring-2 focus:ring-white/50"
+                          placeholder="e.g. 35"
+                          onChange={(e) => {
+                            setMpg(e.target.value);
+                          }}
+                        />
+                      </div>
+                      <div className="space-y-2">
+                        <label
+                          className="block text-white/90 text-sm font-medium"
+                          htmlFor="litres"
+                        >
+                          Fuel Price (pence/L)
+                        </label>
+                        <Input
+                          id="litres"
+                          type="number"
+                          value={ppl}
+                          className="w-full bg-white/90 text-black border-0 focus:ring-2 focus:ring-white/50"
+                          placeholder="e.g. 145"
+                          onChange={(e) => {
+                            setPpl(e.target.value);
+                          }}
+                        />
+                      </div>
                     </div>
-                    <div className="space-y-2">
-                      <label
-                        className="block text-white/90 text-sm font-medium"
-                        htmlFor="mpg"
-                      >
-                        Car Efficiency (MPG)
-                      </label>
-                      <Input
-                        id="mpg"
-                        type="number"
-                        value={mpg}
-                        className="w-full bg-white/90 text-black border-0 focus:ring-2 focus:ring-white/50"
-                        placeholder="e.g. 35"
-                        onChange={(e) => {
-                          setMpg(e.target.value);
-                        }}
-                      />
+                  </CardContent>
+                </TabsContent>
+
+                <TabsContent value="RequiredFuel">
+                  <CardContent className="pb-8">
+                    <RequiredFuel />
+                  </CardContent>
+                </TabsContent>
+
+                <TabsContent value="MPGCalculator">
+                  <CardContent className="pb-8">
+                    <div className="text-center text-white/80">
+                      <p>MPG Calculator coming soon...</p>
                     </div>
-                    <div className="space-y-2">
-                      <label
-                        className="block text-white/90 text-sm font-medium"
-                        htmlFor="litres"
-                      >
-                        Fuel Price (pence/L)
-                      </label>
-                      <Input
-                        id="litres"
-                        type="number"
-                        value={ppl}
-                        className="w-full bg-white/90 text-black border-0 focus:ring-2 focus:ring-white/50"
-                        placeholder="e.g. 145"
-                        onChange={(e) => {
-                          setPpl(e.target.value);
-                        }}
-                      />
-                    </div>
-                  </div>
-                </CardContent>
+                  </CardContent>
+                </TabsContent>
               </Tabs>
             </Card>
           </div>
