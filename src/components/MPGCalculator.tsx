@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Input } from "./ui/input";
 import { Card, CardContent } from "./ui/card";
-import { Gauge, MapPin } from "lucide-react";
+import { Gauge } from "lucide-react";
 
 function MPGCalculator() {
   const [miles, setMiles] = useState("300");
@@ -72,11 +72,11 @@ function MPGCalculator() {
         <div className="text-center mb-6">
           <h3 className="text-xl font-semibold text-white flex items-center justify-center gap-2">
             <Gauge className="w-6 h-6 drop-shadow-sm" />
-            Your Car's Efficiency
+            Your Car&apos;s Efficiency
           </h3>
           <p className="text-white/90 text-sm mt-2">
             {miles && litresUsed
-              ? "Here's your car's fuel efficiency"
+              ? "Here&apos;s your car&apos;s fuel efficiency"
               : "Enter your details above to calculate MPG"}
           </p>
         </div>
