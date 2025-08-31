@@ -9,16 +9,16 @@ import MPGCalculator from "@/components/MPGCalculator";
 
 export default function Home() {
   return (
-    <div className="font-sans min-h-screen flex flex-col bg-gradient-to-br from-[#0f0c29] via-[#24243e] to-[#302b63]">
-      <main className="flex-1 flex justify-center px-6 md:px-12 lg:px-24 py-8 md:py-12 lg:py-16">
+    <div className="font-sans h-screen flex flex-col bg-gradient-to-br from-[#0f0c29] via-[#24243e] to-[#302b63] overflow-hidden">
+      <main className="flex-1 flex justify-center px-6 md:px-12 lg:px-24 py-4 md:py-6 lg:py-8 overflow-y-auto">
         <div className="w-full max-w-3xl">
-          <div className="text-center text-white/90 font-bold text-5xl mb-8">
+          <div className="text-center text-white/90 font-bold text-4xl mb-4">
             <div className="flex items-center justify-center gap-2">
               <h1 className="drop-shadow-lg">Fuel calculator</h1>
-              <FuelIcon size={50} className="drop-shadow-lg" />
+              <FuelIcon size={40} className="drop-shadow-lg" />
             </div>
           </div>
-          <div className="mb-12">
+          <div className="mb-6">
             <Card className="shadow-2xl border-0 bg-gradient-to-br from-[#667eea] via-[#764ba2] to-[#f093fb] rounded-3xl overflow-hidden backdrop-blur-lg">
               <CardHeader className="text-center pb-6">
                 <CardTitle className="text-2xl flex items-center justify-center gap-3 text-white">
@@ -77,7 +77,7 @@ export default function Home() {
           </div>
         </div>
       </main>
-      <footer className="flex gap-[24px] flex-wrap items-center justify-center py-8 px-6 text-white/70 sticky">
+      <footer className="flex gap-[24px] flex-wrap items-center justify-center py-3 px-6 text-white/70 bg-black/10 backdrop-blur-sm">
         <a
           className="flex items-center gap-2 hover:underline hover:underline-offset-4 text-white"
           href="https://github.com/megaflage/fuelme"
