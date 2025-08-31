@@ -141,6 +141,50 @@ export default function Home() {
                         />
                       </div>
                     </div>
+
+                    {/* Journey Results */}
+                    <div className="mt-8 pt-6 border-t border-white/20">
+                      <div className="text-center mb-6">
+                        <h3 className="text-xl font-semibold text-white flex items-center justify-center gap-2">
+                          <MapPin className="w-6 h-6" />
+                          Your Journey Results
+                        </h3>
+                        <p className="text-white/80 text-sm mt-2">
+                          {miles && mpg && ppl
+                            ? "Here's what your trip will cost"
+                            : "Enter your details above to see results"}
+                        </p>
+                      </div>
+                      <div className="grid gap-6 md:grid-cols-2">
+                        <Card className="bg-white/20 backdrop-blur-sm border-white/30 hover:bg-white/25 transition-colors">
+                          <CardContent className="p-6 text-center">
+                            <div className="flex items-center justify-center gap-2 mb-3">
+                              <CreditCard className="w-8 h-8 text-white" />
+                            </div>
+                            <div className="text-3xl font-bold text-white mb-2">
+                              £{totalCost.toFixed(2)}
+                            </div>
+                            <p className="text-white/80 text-sm font-medium uppercase tracking-wide">
+                              Total Cost
+                            </p>
+                          </CardContent>
+                        </Card>
+
+                        <Card className="bg-white/20 backdrop-blur-sm border-white/30 hover:bg-white/25 transition-colors">
+                          <CardContent className="p-6 text-center">
+                            <div className="flex items-center justify-center gap-2 mb-3">
+                              <FuelIcon className="w-8 h-8 text-white" />
+                            </div>
+                            <div className="text-3xl font-bold text-white mb-2">
+                              {litresRequired.toFixed(1)}L
+                            </div>
+                            <p className="text-white/80 text-sm font-medium uppercase tracking-wide">
+                              Fuel Needed
+                            </p>
+                          </CardContent>
+                        </Card>
+                      </div>
+                    </div>
                   </CardContent>
                 </TabsContent>
 
@@ -158,53 +202,6 @@ export default function Home() {
                   </CardContent>
                 </TabsContent>
               </Tabs>
-            </Card>
-          </div>
-
-          <div>
-            <Card className="shadow-xl border-0 bg-gradient-to-r from-[#026873] to-[#03A688]">
-              <CardHeader className="text-center pb-6">
-                <CardTitle className="text-2xl flex items-center justify-center gap-3 text-white">
-                  <MapPin className="w-8 h-8" />
-                  Your Journey Results
-                </CardTitle>
-                <p className="text-white/80 text-sm mt-2">
-                  {miles && mpg && ppl
-                    ? "Here's what your trip will cost"
-                    : "Enter your details above to see results"}
-                </p>
-              </CardHeader>
-              <CardContent className="pb-8">
-                <div className="grid gap-6 md:grid-cols-2">
-                  <Card className="bg-white/20 backdrop-blur-sm border-white/30 hover:bg-white/25 transition-colors">
-                    <CardContent className="p-6 text-center">
-                      <div className="flex items-center justify-center gap-2 mb-3">
-                        <CreditCard className="w-8 h-8 text-white" />
-                      </div>
-                      <div className="text-3xl font-bold text-white mb-2">
-                        £{totalCost.toFixed(2)}
-                      </div>
-                      <p className="text-white/80 text-sm font-medium uppercase tracking-wide">
-                        Total Cost
-                      </p>
-                    </CardContent>
-                  </Card>
-
-                  <Card className="bg-white/20 backdrop-blur-sm border-white/30 hover:bg-white/25 transition-colors">
-                    <CardContent className="p-6 text-center">
-                      <div className="flex items-center justify-center gap-2 mb-3">
-                        <FuelIcon className="w-8 h-8 text-white" />
-                      </div>
-                      <div className="text-3xl font-bold text-white mb-2">
-                        {litresRequired.toFixed(1)}L
-                      </div>
-                      <p className="text-white/80 text-sm font-medium uppercase tracking-wide">
-                        Fuel Needed
-                      </p>
-                    </CardContent>
-                  </Card>
-                </div>
-              </CardContent>
             </Card>
           </div>
         </div>
