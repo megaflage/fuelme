@@ -35,19 +35,19 @@ export default function Home() {
                     <div className="flex w-full min-w-max">
                       <TabsTrigger
                         value="JourneyCost"
-                        className="data-[state=active]:bg-white data-[state=active]:text-gray-900 data-[state=active]:shadow-md text-white/90 data-[state=active]:rounded-2xl rounded-none px-4 py-3 transition-all duration-200 font-medium text-xs sm:text-sm flex-1 min-w-0 whitespace-nowrap hover:bg-white/20 data-[state=active]:hover:bg-white"
+                        className="data-[state=active]:bg-white data-[state=active]:text-gray-900 data-[state=active]:shadow-md text-white/90 data-[state=active]:rounded-2xl rounded-none px-4 py-3 transition-all duration-200 font-medium text-xs sm:text-sm flex-1 min-w-0 whitespace-nowrap hover:bg-white/20 hover:scale-105 data-[state=active]:hover:bg-white data-[state=active]:scale-105"
                       >
                         Journey Cost
                       </TabsTrigger>
                       <TabsTrigger
                         value="RequiredFuel"
-                        className="data-[state=active]:bg-white data-[state=active]:text-gray-900 data-[state=active]:shadow-md text-white/90 data-[state=active]:rounded-2xl rounded-none px-4 py-3 transition-all duration-200 font-medium text-xs sm:text-sm flex-1 min-w-0 whitespace-nowrap hover:bg-white/20 data-[state=active]:hover:bg-white"
+                        className="data-[state=active]:bg-white data-[state=active]:text-gray-900 data-[state=active]:shadow-md text-white/90 data-[state=active]:rounded-2xl rounded-none px-4 py-3 transition-all duration-200 font-medium text-xs sm:text-sm flex-1 min-w-0 whitespace-nowrap hover:bg-white/20 hover:scale-105 data-[state=active]:hover:bg-white data-[state=active]:scale-105"
                       >
                         Required Fuel
                       </TabsTrigger>
                       <TabsTrigger
                         value="MPGCalculator"
-                        className="data-[state=active]:bg-white data-[state=active]:text-gray-900 data-[state=active]:shadow-md text-white/90 data-[state=active]:rounded-2xl rounded-none px-4 py-3 transition-all duration-200 font-medium text-xs sm:text-sm flex-1 min-w-0 whitespace-nowrap hover:bg-white/20 data-[state=active]:hover:bg-white"
+                        className="data-[state=active]:bg-white data-[state=active]:text-gray-900 data-[state=active]:shadow-md text-white/90 data-[state=active]:rounded-2xl rounded-none px-4 py-3 transition-all duration-200 font-medium text-xs sm:text-sm flex-1 min-w-0 whitespace-nowrap hover:bg-white/20 hover:scale-105 data-[state=active]:hover:bg-white data-[state=active]:scale-105"
                       >
                         MPG Calculator
                       </TabsTrigger>
