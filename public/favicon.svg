@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Fuel droplet with a lightning bolt -->
+  <path d="M16 3C16 3 8 13 8 18C8 23.5228 12.4772 28 18 28C23.5228 28 28 23.5228 28 18C28 13 16 3 16 3Z" fill="#111111"/>
+  <path d="M18.5 11L13.5 18H16.8L15 23L20.5 15.5H17.2L18.5 11Z" fill="#FFFFFF"/>
+  <ellipse cx="18" cy="28.2" rx="6" ry="0.8" fill="#000000" fill-opacity="0.1"/>
+  <title>Fuel favicon</title>
+</svg>
